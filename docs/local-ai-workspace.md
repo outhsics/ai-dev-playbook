@@ -1,38 +1,52 @@
-# Local AI Workspace Best Practices
+# Local AI Workspace Best Practices | 本地 AI 工作区最佳实践
 
-## Problem
+## Problem | 问题
 
-When using AI to help build features, requirement screenshots, PRDs, drafts, and tool configs often need to stay local. They are useful for development, but they should not pollute the shared Git repository or be pushed to GitHub by accident.
+使用 AI 辅助开发时，需求截图、PRD、调研材料、草稿和工具配置经常只适合留在本地。它们对开发有帮助，但不应该污染共享仓库，也不应该被误推到 GitHub。  
+When using AI to help with development, requirement screenshots, PRDs, research material, drafts, and tool configs often need to stay local. They are useful for development, but they should not pollute the shared repository or be pushed to GitHub by accident.
 
-## Common Bad Patterns
+## Common Bad Patterns | 常见坏做法
 
-- Adding one-off ignore rules to each project's `.gitignore`
-- Letting local AI tool folders appear in `git status`
-- Keeping useful requirement material only in temporary local folders with no convention
+- 每个项目都临时改一次 `.gitignore`
+- 本地 AI 工具目录长期出现在 `git status`
+- 需求资料散落在临时目录，没有统一约定
+- 对未跟踪资料目录使用 `assume-unchanged` 或 `skip-worktree`
+
+- Adding one-off rules to each project's `.gitignore`
+- Letting local AI tool folders keep showing up in `git status`
+- Keeping useful requirement material in scattered temporary folders with no convention
 - Using `assume-unchanged` or `skip-worktree` for untracked local material
 
-## Recommended Setup
+## Recommended Setup | 推荐方案
+
+分两层处理：
+
+1. 跨项目通用的本地资料，走全局忽略
+2. 某个仓库专属的 AI 工具配置，走仓库本地忽略
 
 Use two layers:
 
-1. Global ignore for cross-project local requirement material
-2. Repository-local ignore for AI tool configuration that only matters in one repo
+1. Global ignore for cross-project local material
+2. Repository-local ignore for AI tool config that only matters in one repo
 
-## Global Ignore
+## Global Ignore | 全局忽略
 
-Create a global Git ignore file and point Git to it:
+先配置全局 Git ignore 文件：  
+Create a global Git ignore file:
 
 ```bash
 git config --global core.excludesFile ~/.gitignore_global
 ```
 
-Add a single convention:
+统一约定一个本地资料目录：  
+Add one shared convention:
 
 ```gitignore
 .ai-local/
 ```
 
-Then in any repository you can keep local requirement material like this:
+然后所有仓库都能这样放：  
+Then any repository can keep local material like this:
 
 ```text
 .ai-local/xiaohuangche/
@@ -40,35 +54,42 @@ Then in any repository you can keep local requirement material like this:
 .ai-local/research/
 ```
 
-Benefits:
+好处 | Benefits:
 
-- Works in every repository
-- No need to keep editing project `.gitignore`
-- Easy to tell AI where the source material lives
+- 所有仓库通用 | works across repositories
+- 不用反复改项目 `.gitignore` | no repeated project `.gitignore` edits
+- 更容易告诉 AI 去哪里读资料 | easier to tell AI where the source material lives
 
-## Repository-Local Ignore
+## Repository-Local Ignore | 仓库本地忽略
 
+对只在当前仓库有意义的工具配置，用 `.git/info/exclude`。  
 For tool-specific local config, use `.git/info/exclude` inside the current repository.
 
-Example:
+示例 | Example:
 
 ```gitignore
 .claude/
 ```
 
-This keeps the shared repository clean without introducing team-wide ignore rules.
+这样不会把团队级忽略规则带进仓库历史。  
+This keeps the repository clean without introducing team-wide ignore rules.
 
-## Good Rules Of Thumb
+## Rules Of Thumb | 实用判断规则
+
+- `.ai-local/` 放本地需求资料、截图、提示词、草稿
+- `.git/info/exclude` 放仓库专属 AI 工具目录
+- 团队共享的正式文档仍然应该正常跟踪
 
 - Use `.ai-local/` for local requirement material, screenshots, prompts, and drafts
 - Use `.git/info/exclude` for repo-specific AI tool folders
-- Keep anything team-shared in normal tracked docs, not in local-only folders
+- Keep team-shared source-of-truth docs as normal tracked files
 
-## When Not To Use This
+## When Not To Use This | 不适用场景
 
-Do not hide files that the team must review, maintain, or depend on. Local-only storage is for personal working context, not for project source of truth.
+不要把团队必须评审、维护或依赖的文件藏进本地目录。  
+Do not hide files that the team must review, maintain, or depend on in local-only folders.
 
-## Minimal Example
+## Minimal Example | 最小示例
 
 ```text
 my-project/
@@ -80,6 +101,7 @@ my-project/
   package.json
 ```
 
-## Takeaway
+## Takeaway | 总结
 
-If AI needs the material but Git should ignore it, give that material a stable local home. A simple `.ai-local/` convention plus selective use of `.git/info/exclude` is enough for most projects.
+如果 AI 需要读这些资料，但 Git 不该跟踪它们，就给这些资料一个稳定的本地位置。对大多数项目来说，`.ai-local/` 加上有选择地使用 `.git/info/exclude` 就足够了。  
+If AI needs the material but Git should ignore it, give that material a stable local home. For most projects, a simple `.ai-local/` convention plus selective use of `.git/info/exclude` is enough.
