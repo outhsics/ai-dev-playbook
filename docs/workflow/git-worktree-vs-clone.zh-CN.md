@@ -1,6 +1,7 @@
 # Git Worktree 的真正用途：少 Clone、并行多需求，但不要共用同一分支
 
-English version: [git-worktree-vs-clone.en.md](./git-worktree-vs-clone.en.md)
+英文版见：[git-worktree-vs-clone.en.md](./git-worktree-vs-clone.en.md)
+配套文章见：[multi-ai-branch-and-directory-rules.zh-CN.md](./multi-ai-branch-and-directory-rules.zh-CN.md)
 
 ## 问题
 

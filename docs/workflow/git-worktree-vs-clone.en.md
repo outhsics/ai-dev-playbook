@@ -1,6 +1,7 @@
 # What Git Worktree Is Actually For: Fewer Clones, Parallel Requirements, Not the Same Branch Everywhere
 
-中文版: [git-worktree-vs-clone.zh-CN.md](./git-worktree-vs-clone.zh-CN.md)
+Chinese version: [git-worktree-vs-clone.zh-CN.md](./git-worktree-vs-clone.zh-CN.md)
+Companion article: [multi-ai-branch-and-directory-rules.en.md](./multi-ai-branch-and-directory-rules.en.md)
 
 ## Problem
 

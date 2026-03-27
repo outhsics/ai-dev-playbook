@@ -50,6 +50,9 @@ Ask the AI to read these files first:
 
 ## 当前文章 | Current Notes
 
-- [Local AI Workspace Best Practices](./docs/local-ai-workspace.md)
+- [本地 AI 工作区最佳实践](./docs/local-ai-workspace.zh-CN.md)
+- [Local AI Workspace Best Practices](./docs/local-ai-workspace.en.md)
 - [Git Worktree vs Clone (中文)](./docs/workflow/git-worktree-vs-clone.zh-CN.md)
 - [Git Worktree vs Clone (English)](./docs/workflow/git-worktree-vs-clone.en.md)
+- [多 AI 并行开发时的分支和目录规则](./docs/workflow/multi-ai-branch-and-directory-rules.zh-CN.md)
+- [Branch and Directory Rules for Parallel AI Development](./docs/workflow/multi-ai-branch-and-directory-rules.en.md)
