@@ -41,6 +41,12 @@ Turn a real solved problem into durable, reusable, publishable knowledge quickly
 - `git-hygiene-for-ai-projects.md`
 - `handoff-context-between-ai-tools.md`
 
+如果文章需要中英文两个版本，优先使用成对文件名：  
+If an article needs both Chinese and English versions, prefer paired filenames:
+
+- `git-worktree-vs-clone.zh-CN.md`
+- `git-worktree-vs-clone.en.md`
+
 ## 推荐结构 | Recommended Shape
 
 1. Problem | 问题
@@ -63,6 +69,14 @@ Publish once you have these three things:
 - one real problem
 - one solution that actually worked
 - one example that makes it concrete
+
+## 语言发布建议 | Language Publishing Guidance
+
+仓库级规则适合中英同页。  
+正式分享文章更适合拆成独立中文稿和英文稿，并在文首互相链接。  
+
+Repository-level rules work well as bilingual single-page docs.  
+Public-facing articles are usually easier to read as separate Chinese and English files with cross-links near the top.
 
 ## 新建还是更新 | New File Or Update
 

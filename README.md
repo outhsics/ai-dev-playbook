@@ -26,13 +26,15 @@ Ask the AI to read these files first:
 
 ## 默认写作标准 | Default Writing Standard
 
-- 默认支持中英文双语，除非用户明确要求单语
+- 默认支持中英文，除非用户明确要求单语
 - 内容优先简洁、实用、可检索
 - 每篇尽量聚焦一个问题和一个可复用解法
+- 正式长文优先拆成中文稿和英文稿
 
-- Default to bilingual Chinese and English unless the user explicitly asks for one language only
+- Support both Chinese and English unless the user explicitly asks for one language only
 - Optimize for concise, practical, searchable writing
 - Keep each note focused on one problem and one reusable solution
+- Prefer separate Chinese and English files for public long-form articles
 
 ## 推荐流程 | Recommended Workflow
 
@@ -49,3 +51,5 @@ Ask the AI to read these files first:
 ## 当前文章 | Current Notes
 
 - [Local AI Workspace Best Practices](./docs/local-ai-workspace.md)
+- [Git Worktree vs Clone (中文)](./docs/workflow/git-worktree-vs-clone.zh-CN.md)
+- [Git Worktree vs Clone (English)](./docs/workflow/git-worktree-vs-clone.en.md)

@@ -24,19 +24,29 @@ When the user says a problem has been solved, should be remembered, turned into 
 
 ## 默认产出标准 | Default Output Standard
 
-- 默认写成中英双语，除非用户明确要求单语
+- 默认支持中英文，除非用户明确要求单语
 - 标题优先可搜索，不要追求花哨
 - 每篇聚焦一个问题或一个工作流
 - 至少保留一个真实例子
 - 明确说明何时不适用
 - 可读、可复用、可检索
 
-- Default to bilingual Chinese and English unless the user explicitly asks for one language only
+- Support both Chinese and English by default unless the user explicitly asks for one language only
 - Prefer searchable titles over clever titles
 - Keep each note focused on one problem or workflow
 - Include at least one real example
 - State when the pattern should not be used
 - Optimize for readability, reuse, and searchability
+
+## 语言策略 | Language Strategy
+
+- 仓库级规则、模板、流程文档可以中英同页
+- 面向公开阅读的正式文章，优先拆成中文和英文两个完整文件
+- 不推荐在正式长文里逐段中英混排，阅读体验通常更差
+
+- Repository-level rules, templates, and workflow docs may stay bilingual in one file
+- Public-facing articles should usually be split into one full Chinese file and one full English file
+- Avoid paragraph-by-paragraph mixed-language long-form articles unless there is a strong reason
 
 ## 推荐动作 | Preferred Actions
 
